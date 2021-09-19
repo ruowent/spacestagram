@@ -7,6 +7,7 @@ export const Section = styled.div`
 
 export const Body = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 `
