@@ -5,10 +5,19 @@ export const PanelContainer = styled.div`
   flex-direction: column;
   padding: 2rem;
   max-width: 23rem;
+  
   @media only screen and (max-width: 1200px) {
     max-width: 40rem;
     padding: 0 1rem;
-}
+  }
+
+  @media only screen and (max-width: 768px) {
+    max-width: 90%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    max-width: 375px;
+  }
 `
 export const Title = styled.h2`
   font-size: 1.5rem;

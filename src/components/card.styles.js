@@ -10,6 +10,10 @@ export const Container = styled.div`
   @media only screen and (max-width: 768px) {
     max-width: 90%;
   }
+
+  @media only screen and (max-width: 600px) {
+    max-width: 375px;
+  }
 `
 
 export const TitleContainer = styled.div`
