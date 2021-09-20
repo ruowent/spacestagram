@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-
+import { useEffect } from 'react';
+import useApplicationData from './components/hooks/useApplicationData';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import axios from 'axios';
 
 import Card from './components/card';
 import Loading from './components/loading';
@@ -11,28 +10,9 @@ import { Section, Body, Posts } from './App.styles';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 
 function App() {
-  const [nasaApodData, setNasaApodData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { nasaApodData, isLoading, getNasaApodData } = useApplicationData();
 
-  const dateRange = `start_date=2021-02-21&end_date=2021-03-01`;
-
-  const nasaApodUrl = `https://api.nasa.gov/planetary/apod?count=10&thumbs&api_key=${process.env.REACT_APP_APIKEY}`;
-  // const nasaApodUrl = `https://api.nasa.gov/planetary/apod?${dateRange}&thumbs=true&api_key=${process.env.REACT_APP_APIKEY}`;
-
-  const getNasaApodData = async () => {
-    try {
-      const nasaApodData = await axios.get(nasaApodUrl);
-      setNasaApodData(prev => ([...prev, ...nasaApodData.data]));
-      console.log('getting new data')
-      setIsLoading(false);
-    }
-    catch(error) {
-      console.error(`Failed with ${error}`);
-      if (error.response && error.response.status === 404) { console.clear() };
-    }
-  }
   useEffect(() => {
-    setIsLoading(true);
     getNasaApodData();
   },[])
 
@@ -55,7 +35,7 @@ function App() {
               dataLength={nasaApodData.length}
               next={getNasaApodData}
               hasMore={true}
-              loader={<h4>Loading...</h4>}
+              loader={<h4>Loading More Posts...</h4>}
             >
               {nasaApodData.map( apodData => {
                 return (
