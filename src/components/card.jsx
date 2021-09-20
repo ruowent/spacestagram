@@ -1,20 +1,41 @@
 import { useState } from 'react';
 
-import IconButton from '@mui/material/IconButton';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import SendIcon from '@mui/icons-material/Send';
-
-import { Container, TitleContainer, Title, Image, Video, ButtonContainer, Textbox, Description } from './card.styles';
+import { Snackbar, IconButton } from '@mui/material';
+import {
+  Close as CloseIcon,
+  FavoriteBorder as FavoriteBorderIcon,
+  Favorite as FavoriteIcon,
+  Send as SendIcon,
+} from '@mui/icons-material';
+import { Container, TitleContainer, Title, Text, Image, Video, ButtonContainer, Buttons, Textbox, Description } from './card.styles';
 
 export default function Card({
   apodData: { date, explanation, url, title, media_type, copyright },
-  // like,
-  // setLike,
 }) {
 
   const [like, setLike] = useState(false);
   const [showText, setShowText] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const handleClose = () => {
+    setOpenSnackbar(false);
+  };
+
+  const snackbarAction = (
+    <IconButton
+      size="small"
+      aria-label="close"
+      color="inherit"
+      onClick={handleClose}
+    >
+      <CloseIcon fontSize="small" />
+    </IconButton>
+  );
+
+  const handleShare = async (url) => {
+    await navigator.clipboard.writeText(url);
+    setOpenSnackbar(true);
+  }
 
   return (
     <Container>
@@ -27,21 +48,30 @@ export default function Card({
       {media_type === 'video' && <Video src={url} title={title}/>}
 
       <ButtonContainer>
-        <IconButton aria-label='Like' onClick={() => setLike(!like)}>
-          {like ?
-            <FavoriteIcon fontSize='large' color='error'/> :
-            <FavoriteBorderIcon fontSize='large'/>}
-        </IconButton>
-        <IconButton aria-label='Share'>
-          <SendIcon fontSize='large'/>
-        </IconButton>
+        <Buttons>
+          <IconButton aria-label='Like' onClick={() => setLike(!like)}>
+            {like ?
+              <FavoriteIcon fontSize='large' color='error'/> :
+              <FavoriteBorderIcon fontSize='large'/>}
+          </IconButton>
+          <IconButton aria-label='Share'>
+            <SendIcon fontSize='large' onClick={() => handleShare(url)}/>
+            <Snackbar
+              open={openSnackbar}
+              autoHideDuration={3000}
+              onClose={handleClose}
+              message="URL Copied. Ready to Share!"
+              action={snackbarAction}
+            />
+          </IconButton>
+        </Buttons>
         <Description onClick={() => setShowText(!showText)}>
           {showText ? 'SHOW LESS' : 'SHOW MORE'}
         </Description>
       </ButtonContainer>
 
       <Textbox>
-        {copyright && <p>©{copyright}</p>}
+        {copyright && <Text>©{copyright}</Text>}
         {showText && explanation}
       </Textbox>
     </Container>
