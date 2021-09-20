@@ -21,9 +21,18 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 export const Title = styled.h3`
   font-size: 1rem;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+  }
 `
 
 export const Text = styled.div`
