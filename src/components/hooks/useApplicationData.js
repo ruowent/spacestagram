@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const dateRange = `start_date=2021-02-21&end_date=2021-03-01`;
 
-const nasaApodUrl = `https://api.nasa.gov/planetary/apod?count=10&thumbs&api_key=${process.env.REACT_APP_APIKEY}`;
-// const nasaApodUrl = `https://api.nasa.gov/planetary/apod?${dateRange}&thumbs=true&api_key=${process.env.REACT_APP_APIKEY}`;
+const nasaApodUrl = `https://api.nasa.gov/planetary/apod?count=10&api_key=${process.env.REACT_APP_APIKEY}`;
+// const nasaApodUrl = `https://api.nasa.gov/planetary/apod?${dateRange}&api_key=${process.env.REACT_APP_APIKEY}`;
 
 export default function useApplicationData() {
   const [nasaApodData, setNasaApodData] = useState([]);
@@ -22,5 +22,5 @@ export default function useApplicationData() {
     }
   }
 
-  return { nasaApodData, isLoading, getNasaApodData };
+  return { nasaApodData, isLoading, setIsLoading, getNasaApodData, setNasaApodData };
 }

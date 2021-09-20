@@ -5,7 +5,7 @@ export const PanelContainer = styled.div`
   flex-direction: column;
   padding: 2rem;
   max-width: 23rem;
-  
+
   @media only screen and (max-width: 1200px) {
     max-width: 40rem;
     padding: 0 1rem;
@@ -25,6 +25,7 @@ export const Title = styled.h2`
 
 export const Text = styled.p`
   font-size: 1rem;
+  padding-bottom: 1rem;
 `
 
 export const SmallText = styled.p`

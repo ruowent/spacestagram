@@ -9,10 +9,9 @@ import {
 } from '@mui/icons-material';
 import { Container, TitleContainer, Title, Text, Image, Video, ButtonContainer, Buttons, Textbox, Description } from './card.styles';
 
-export default function Card({
-  apodData: { date, explanation, url, title, media_type, copyright },
-}) {
+export default function Card({ apodData }) {
 
+  const { date, explanation, url, title, media_type, copyright } = apodData;
   const [like, setLike] = useState(false);
   const [showText, setShowText] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -37,6 +36,11 @@ export default function Card({
     setOpenSnackbar(true);
   }
 
+  const handleLike = () => {
+    setLike(!like);
+    localStorage.setItem('Likes', apodData);
+  }
+
   return (
     <Container>
       <TitleContainer>
@@ -49,7 +53,7 @@ export default function Card({
 
       <ButtonContainer>
         <Buttons>
-          <IconButton aria-label='Like' onClick={() => setLike(!like)}>
+          <IconButton aria-label='Like' onClick={handleLike}>
             {like ?
               <FavoriteIcon fontSize='large' color='error'/> :
               <FavoriteBorderIcon fontSize='large'/>}
