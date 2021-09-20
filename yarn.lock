@@ -11628,6 +11628,11 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+virtual-scroll-component@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/virtual-scroll-component/-/virtual-scroll-component-1.0.4.tgz#1a5178a391133b6b4d72e60633bb39b6e1bbf8cd"
+  integrity sha512-6VzRi9+oVIT6V6gjS7VQaNnCUzHqEsZl4dzuIi+zcc+lPvC0GWHGHIarAGsKwZpr9DHW10fWz00C+Mu8++5QLQ==
+
 vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"

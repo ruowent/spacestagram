@@ -20,6 +20,7 @@
     "react-scripts": "4.0.3",
     "sass": "^1.41.1",
     "styled-components": "^5.3.1",
+    "virtual-scroll-component": "^1.0.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
