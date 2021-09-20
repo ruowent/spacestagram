@@ -7,19 +7,19 @@ import Alert from '@mui/material/Alert';
 import Loading from './loading';
 
 import { Body, Posts } from '../App.styles';
-import { PanelContainer, Title, Text, SmallText } from './rightPanel.styles';
+import { PanelContainer, Title, Text } from './rightPanel.styles';
 import { Form, ButtonContainer } from './search.styles';
 
-const theme = createTheme({
-  palette: {
-    secondary: {
-      main: '#000000',
-      contrastText: '#fff',
-    },
-  }
-});
-
 export default function Search() {
+  const theme = createTheme({
+    palette: {
+      secondary: {
+        main: '#000000',
+        contrastText: '#fff',
+      },
+    }
+  });
+
   const today = new Date().toISOString().split('T')[0];
 
   const [searchDate, setSearchDate] = useState(today);
@@ -37,7 +37,6 @@ export default function Search() {
 
     try {
       const nasaApodData = await axios.get(nasaApodUrl);
-      console.log('try',nasaApodData.data[0])
       setSearchResult(nasaApodData.data[0]);
       setIsLoading(false);
     }
@@ -62,7 +61,7 @@ export default function Search() {
         { !isLoading && searchResult && <Card apodData={searchResult}/>}
       </Posts>
       <PanelContainer>
-        <Title><em style={{fontFamily: 'Oleo Script' }}>Spacetagram</em> Search</Title>
+        <Title><em style={{fontFamily: 'Oleo Script' }}>Spacetagram</em> Search 🚀</Title>
         <Text>Search your favourite cosmo image of the day</Text>
         <Form onSubmit={handleSubmit}>
           <TextField

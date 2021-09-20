@@ -9,7 +9,7 @@ export default function Navbar () {
           <StyledLink to="/">Spacestagram</StyledLink>
         </Typography>
 
-        <StyledLink to="/search">Search</StyledLink>
+        <StyledLink to="/search">SEARCH</StyledLink>
       </Toolbar>
     </AppBar>
   )
