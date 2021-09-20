@@ -6,6 +6,10 @@ export const Container = styled.div`
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  @media only screen and (max-width: 768px) {
+    max-width: 90%;
+  }
 `
 
 export const TitleContainer = styled.div`
@@ -18,14 +22,24 @@ export const Title = styled.h3`
   font-size: 1rem;
 `
 
+export const Text = styled.div`
+  padding: 0.5rem 0;
+`
+
 export const Image = styled.img`
   width: 40rem;
   object-fit: contain;
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `
 
 export const Video = styled.iframe`
   width: 40rem;
   height: 28rem;
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `
 
 export const Textbox = styled.div`
@@ -44,5 +58,10 @@ export const Description = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding-left: 0.5rem;
+`
+
+export const Buttons= styled(ButtonContainer)`
+  justify-content: flex-start;
+  padding: 0;
 `
