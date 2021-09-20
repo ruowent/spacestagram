@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+
+import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from 'axios';
 
 import Card from './components/card';
@@ -14,13 +16,14 @@ function App() {
 
   const dateRange = `start_date=2021-02-21&end_date=2021-03-01`;
 
-  // const nasaApodUrl = `https://api.nasa.gov/planetary/apod?count=10&thumbs&api_key=${process.env.REACT_APP_APIKEY}`;
-  const nasaApodUrl = `https://api.nasa.gov/planetary/apod?${dateRange}&thumbs=true&api_key=${process.env.REACT_APP_APIKEY}`;
+  const nasaApodUrl = `https://api.nasa.gov/planetary/apod?count=10&thumbs&api_key=${process.env.REACT_APP_APIKEY}`;
+  // const nasaApodUrl = `https://api.nasa.gov/planetary/apod?${dateRange}&thumbs=true&api_key=${process.env.REACT_APP_APIKEY}`;
 
   const getNasaApodData = async () => {
     try {
       const nasaApodData = await axios.get(nasaApodUrl);
-      setNasaApodData(nasaApodData.data);
+      setNasaApodData(prev => ([...prev, ...nasaApodData.data]));
+      console.log('getting new data')
       setIsLoading(false);
     }
     catch(error) {
@@ -33,7 +36,6 @@ function App() {
     getNasaApodData();
   },[])
 
-
   return (
     <Section>
       <AppBar position='static' style={{ background: '#000000' }}>
@@ -45,16 +47,26 @@ function App() {
       </AppBar>
       <Body>
         <Posts>
-          { isLoading && <Loading title='Loading...' subTitle='Please do not close the browser, we are downloading photos from the space' />}
-          { !isLoading && nasaApodData.map(( apodData, index) => {
+          { isLoading &&
+            <Loading title='Loading...' subTitle='Please do not close the browser, we are downloading photos from the space' />}
 
-            return (
-              <Card
-                key={index}
-                apodData={apodData}
-              />
-            )
-          })}
+          {!isLoading &&
+            <InfiniteScroll
+              dataLength={nasaApodData.length}
+              next={getNasaApodData}
+              hasMore={true}
+              loader={<h4>Loading...</h4>}
+            >
+              {nasaApodData.map( apodData => {
+                return (
+                  <Card
+                    key={apodData.date}
+                    apodData={apodData}
+                  />
+                )
+              })}
+            </InfiniteScroll>
+          }
         </Posts>
         <RightPanel/>
       </Body>
