@@ -61,7 +61,7 @@ export default function Search() {
         { !isLoading && searchResult && <Card apodData={searchResult}/>}
       </Posts>
       <PanelContainer>
-        <Title><em style={{fontFamily: 'Oleo Script' }}>Spacetagram</em> Search 🚀</Title>
+        <Title><em style={{fontFamily: 'Oleo Script' }}>Spacestagram</em> Search 🚀</Title>
         <Text>Search your favourite cosmo image of the day</Text>
         <Form onSubmit={handleSubmit}>
           <TextField
