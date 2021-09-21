@@ -22,7 +22,7 @@ Spacestagram app is a responsive front-end app which allows users to view and sh
 ## 🎥 Demo
 
 ### 💻 Desktop View
-![DesktopView](https://github.com/ruowent/spacestagram/blob/main/public/desktop.gif?raw=true)
+![DesktopView](https://github.com/ruowent/spacestagram/blob/main/public/desktopview.gif?raw=true)
 
 ### 📱 Mobile View
 ![MobileView](https://github.com/ruowent/spacestagram/blob/main/public/mobileview.gif?raw=true)
