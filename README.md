@@ -4,7 +4,7 @@
 
 Spacestagram app is a responsive front-end app which allows users to view and share photos and videos from the NASA Astronomy Picture of the Day API.
 
-[>>> View my app here <<< ](https://upbeat-mirzakhani-6f7299.netlify.app/)
+[>>> View my app here <<< ](https://spacestagram-ruowent.netlify.app/)
 
 ## 🖥 Tech Stack
 <b>Development</b>: ReactJS, Material-UI, Virtual-scroll<br />
