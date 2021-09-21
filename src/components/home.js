@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import useApplicationData from './hooks/useApplicationData';
 
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { createTheme, useScrollTrigger, Box, Fab, Zoom, ThemeProvider } from '@mui/material';
+import { createTheme, useScrollTrigger, Box, Fab, Zoom, ThemeProvider, CircularProgress } from '@mui/material';
 import Card from './card';
 import Loading from './loading';
 import RightPanel from './rightPanel'
@@ -69,7 +69,7 @@ export default function Home(props) {
             dataLength={nasaApodData.length}
             next={getNasaApodData}
             hasMore={true}
-            loader={<h4>Loading More Posts...</h4>}
+            loader={<h4>Loading More Posts... <CircularProgress area-hidden='true' color='inherit'/></h4>}
           >
             {nasaApodData.map( apodData => {
               return (
