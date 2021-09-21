@@ -4,7 +4,7 @@
 
 Spacestagram app is a responsive front-end app which allows users to view and share photos and videos from the NASA Astronomy Picture of the Day API.
 
-[>>> View my app here <<< ](https://upbeat-mirzakhani-6f7299.netlify.app/)
+[>>> View my app here <<< ](https://spacestagram-ruowent.netlify.app/)
 
 ## 🖥 Tech Stack
 <b>Development</b>: ReactJS, Material-UI, Virtual-scroll<br />
@@ -32,17 +32,27 @@ Spacestagram app is a responsive front-end app which allows users to view and sh
 
 
 ## 🛠 Setup
-This app is deployed [here](https://upbeat-mirzakhani-6f7299.netlify.app/), however if you prefer to setup a local copy, please follow the stpes below: 
+This app is deployed [here](https://spacestagram-ruowent.netlify.app/), however if you prefer to setup a local copy, please follow the stpes below: 
 
 1. Fork or download this repository
 
-2. Install dependencies with 
+2. Get a free API key from https://api.nasa.gov
+
+3. Create .env file in the root folder with the API key value like below
+
+```sh
+    REACT_APP_APIKEY=yourAPIKey
+```
+
+4. Fork or download this repository
+
+5. Install dependencies with 
 
 ```sh
 yarn install
 ```
 
-3. Running Webpack Development Server
+6. Running Webpack Development Server
 
 ```sh
 yarn start
