@@ -17,6 +17,7 @@ Spacestagram app is a responsive front-end app which allows users to view and sh
 - Loading state while fetching data from NASA API
 - Photo search via date picker
 - Scroll to top button
+- Accessibility
 
 ## 🎥 Demo
 
