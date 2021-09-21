@@ -47,7 +47,7 @@ export default function Search() {
       if (error.response && error.response.status === 404) { console.clear() };
       if (error.response && error.response.status === 400) {
         console.clear();
-        setError(`Please enter a valid date between 1995-06-16 and ${today}`);
+        setError(`Please enter a valid date between 1995-06-16 and ${estDate}`);
       }
     }
   }
@@ -61,7 +61,7 @@ export default function Search() {
   return (
     <Body>
       <Posts>
-        { isSearching &&
+        { isSearching && !error &&
           <Loading title='Loading...' subTitle='Please do not close the browser, we are downloading photo from the space' />}
         { !isSearching && searchResult && <Card apodData={searchResult}/>}
       </Posts>
