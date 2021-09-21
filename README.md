@@ -32,7 +32,7 @@ Spacestagram app is a responsive front-end app which allows users to view and sh
 
 
 ## 🛠 Setup
-This app is deployed [here](https://upbeat-mirzakhani-6f7299.netlify.app/), however if you prefer to setup a local copy, please follow the stpes below: 
+This app is deployed [here](https://spacestagram-ruowent.netlify.app/), however if you prefer to setup a local copy, please follow the stpes below: 
 
 1. Fork or download this repository
 
