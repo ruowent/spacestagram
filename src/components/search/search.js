@@ -70,9 +70,9 @@ export default function Search() {
         <Text>Search your favourite cosmo image of the day</Text>
         <Form onSubmit={handleSubmit}>
           <TextField
-            id="date"
-            label="Pick a Date"
-            type="date"
+            id='date'
+            label='Pick a Date'
+            type='date'
             sx={{ width: 300 }}
             InputLabelProps={{
               shrink: true,
@@ -87,7 +87,7 @@ export default function Search() {
         </Form>
         
         {error &&
-          <Alert variant="outlined" severity="error" style={{ margin: '1rem' }}>
+          <Alert variant='outlined' severity='error' style={{ margin: '1rem' }}>
             {error}
           </Alert>
         }

@@ -49,7 +49,7 @@ export default function Home(props) {
       <Zoom in={trigger}>
         <Box
           onClick={handleClick}
-          role="presentation"
+          role='presentation'
           sx={{ position: 'fixed', bottom: 16, right: 16 }}
         >
           {props.children}
@@ -85,7 +85,7 @@ export default function Home(props) {
       <RightPanel setNasaApodData={setNasaApodData}/>
       <ScrollTop {...props}>
         <ThemeProvider theme={theme}>
-          <Fab color="secondary" size="medium" aria-label="scroll back to top">
+          <Fab color='secondary' size='medium' aria-label='scroll back to top'>
             <KeyboardArrowUpIcon />
           </Fab>
         </ThemeProvider>

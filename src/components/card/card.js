@@ -22,12 +22,12 @@ export default function Card({ apodData }) {
 
   const snackbarAction = (
     <IconButton
-      size="small"
-      aria-label="close"
-      color="inherit"
+      size='small'
+      aria-label='close'
+      color='inherit'
       onClick={handleClose}
     >
-      <CloseIcon fontSize="small" />
+      <CloseIcon fontSize='small' />
     </IconButton>
   );
 
@@ -64,7 +64,7 @@ export default function Card({ apodData }) {
               open={openSnackbar}
               autoHideDuration={3000}
               onClose={handleClose}
-              message="URL Copied. Ready to Share!"
+              message='URL Copied. Ready to Share!'
               action={snackbarAction}
             />
           </IconButton>

@@ -17,10 +17,10 @@ function App() {
         <Router>
           <Navbar/>
           <Switch>
-            <Route path="/" exact>
+            <Route path='/' exact>
               <Home />
             </Route>
-            <Route path="/search" exact>
+            <Route path='/search' exact>
               <Search/>
             </Route>
           </Switch>
