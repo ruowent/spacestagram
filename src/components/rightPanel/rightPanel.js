@@ -1,3 +1,4 @@
+import React from 'react';
 import { PanelContainer, Title, Text, SmallText } from './rightPanel.styles';
 
 export default function RightPanel() {

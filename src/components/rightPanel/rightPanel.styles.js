@@ -5,7 +5,8 @@ export const PanelContainer = styled.div`
   flex-direction: column;
   padding: 2rem;
   max-width: 23rem;
-
+  align-items: center;
+  
   @media only screen and (max-width: 1200px) {
     max-width: 40rem;
     padding: 0 1rem;

@@ -1,12 +1,13 @@
+import React from 'react'; 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
 
-import Search from './components/search';
 import Home from './components/home';
 import Navbar from './components/navbar';
+import Search from './components/search';
 
 import { Section } from './App.styles';
 
@@ -18,10 +19,10 @@ function App() {
           <Switch>
             <Route path="/" exact>
               <Home />
-          </Route>
-          <Route path="/search" exact>
-            <Search/>
-          </Route>
+            </Route>
+            <Route path="/search" exact>
+              <Search/>
+            </Route>
           </Switch>
         </Router>
     </Section>

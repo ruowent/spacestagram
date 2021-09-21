@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { StyledLink } from './navbar.styles';
 
@@ -8,9 +10,8 @@ export default function Navbar () {
         <Typography variant='h4' component='div' sx={{ flexGrow: 1, fontFamily: 'Oleo Script' }}>
           <StyledLink to="/">Spacestagram</StyledLink>
         </Typography>
-
         <StyledLink to="/search">SEARCH</StyledLink>
       </Toolbar>
     </AppBar>
   )
-}
+};

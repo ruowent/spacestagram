@@ -1,12 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-// styles
 import {
   Layout,
   Title,
   SubTitle,
 } from './loading.styles'
-import CircularProgress from '@material-ui/core/CircularProgress'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Loading = ({ title, subTitle }) => {
   return (
@@ -16,6 +15,6 @@ const Loading = ({ title, subTitle }) => {
       <SubTitle>{subTitle}</SubTitle>
     </Layout>
   )
-}
+};
 
-export default Loading
+export default Loading;

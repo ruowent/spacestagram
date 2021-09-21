@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { createTheme, Button, TextField, ThemeProvider } from '@mui/material';
-import Card from './card';
-import Alert from '@mui/material/Alert';
-import Loading from './loading';
+import { createTheme, Button, TextField, ThemeProvider, Alert } from '@mui/material';
+import Card from '../card/';
+import Loading from '../loading';
 
-import { Body, Posts } from '../App.styles';
-import { PanelContainer, Title, Text } from './rightPanel.styles';
+import { Body, Posts } from '../../App.styles';
+import { PanelContainer, Title, Text } from '../rightPanel/rightPanel.styles';
 import { Form, ButtonContainer } from './search.styles';
 
 export default function Search() {
@@ -25,20 +24,20 @@ export default function Search() {
   const [searchDate, setSearchDate] = useState(today);
   const [searchResult, setSearchResult] = useState({});
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading ]= useState(false);
+  const [isSearching, setIsSearching ]= useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchDate(event.target[0].value);
   };
 
-  const getNasaApodData = async (searchDate) => {
+  const searchNasaApodData = async (searchDate) => {
     const nasaApodUrl = `https://api.nasa.gov/planetary/apod?start_date=${searchDate}&end_date=${searchDate}&api_key=${process.env.REACT_APP_APIKEY}`;
 
     try {
       const nasaApodData = await axios.get(nasaApodUrl);
       setSearchResult(nasaApodData.data[0]);
-      setIsLoading(false);
+      setIsSearching(false);
     }
     catch(error) {
       console.error(`Failed with ${error}`);
@@ -49,16 +48,16 @@ export default function Search() {
 
   useEffect(() => {
     setError('');
-    setIsLoading(true);
-    getNasaApodData(searchDate);
+    setIsSearching(true);
+    searchNasaApodData(searchDate);
   }, [searchDate])
 
   return (
     <Body>
       <Posts>
-        { isLoading &&
+        { isSearching &&
           <Loading title='Loading...' subTitle='Please do not close the browser, we are downloading photo from the space' />}
-        { !isLoading && searchResult && <Card apodData={searchResult}/>}
+        { !isSearching && searchResult && <Card apodData={searchResult}/>}
       </Posts>
       <PanelContainer>
         <Title><em style={{fontFamily: 'Oleo Script' }}>Spacestagram</em> Search 🚀</Title>
@@ -82,7 +81,7 @@ export default function Search() {
         </Form>
         
         {error &&
-          <Alert variant="outlined" severity="error">
+          <Alert variant="outlined" severity="error" style={{ margin: '1rem' }}>
             {error}
           </Alert>
         }
