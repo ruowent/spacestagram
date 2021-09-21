@@ -19,9 +19,12 @@ export default function Search() {
     }
   });
 
-  const today = new Date().toISOString().split('T')[0];
+  // Timezone offset for EST and format today's date
+  const today = new Date();
+  const offset = -300;
+  const estDate = new Date(today.getTime() + offset*60*1000).toISOString().split('T')[0]; 
 
-  const [searchDate, setSearchDate] = useState(today);
+  const [searchDate, setSearchDate] = useState(estDate);
   const [searchResult, setSearchResult] = useState({});
   const [error, setError] = useState('');
   const [isSearching, setIsSearching ]= useState(false);
@@ -42,7 +45,10 @@ export default function Search() {
     catch(error) {
       console.error(`Failed with ${error}`);
       if (error.response && error.response.status === 404) { console.clear() };
-      if (error.response && error.response.status === 400) setError(`Please enter a valid date between 1995-06-16 and ${today}`)
+      if (error.response && error.response.status === 400) {
+        console.clear();
+        setError(`Please enter a valid date between 1995-06-16 and ${today}`);
+      }
     }
   }
 
