@@ -36,13 +36,23 @@ This app is deployed [here](https://spacestagram-ruowent.netlify.app/), however 
 
 1. Fork or download this repository
 
-2. Install dependencies with 
+2. Get a free API key from https://api.nasa.gov
+
+3. Create .env file in the root folder with the API key value like below
+
+```sh
+    REACT_APP_APIKEY=yourAPIKey
+```
+
+4. Fork or download this repository
+
+5. Install dependencies with 
 
 ```sh
 yarn install
 ```
 
-3. Running Webpack Development Server
+6. Running Webpack Development Server
 
 ```sh
 yarn start
